@@ -19,6 +19,11 @@ FROM dockerfile/ubuntu
 # Install Python.
 RUN apt-get install -y python python-dev python-pip python-virtualenv
 
+RUN pip install psutil
+RUN pip install simplejson
+
+RUN git clone https://github.com/mumrah/kafka-python && pip install ./kafka-python
+
 # Define mountable directories.
 VOLUME ["/data"]
 
